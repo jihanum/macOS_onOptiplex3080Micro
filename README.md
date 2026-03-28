@@ -1,18 +1,16 @@
 # macOS on a Dell Optiplex 3080 Micro
-This is an macOS EFI specialized to work on a Dell Optiplex 3080 Micro. It contains the config.plist and the files associated with it.
-- Note: This EFI has been made for educational purposes, and I have intended to create this EFI purely to learn about low-level hardware interactions with the OS.
+This is an macOS EFI for a Dell Optiplex 3080 Micro.
 
 System specs
 -
-- Intel i7 10700T
-- UHD 630 Integrated Graphics
+- Intel i7 10700T & UHD 630
 - 16GB 2933MHz DDR4
 - 512GB PM991a NVMe
-- Broadcom 94360CS2 Wi-Fi/BT Combo Network Card (For full functionality compared to the original Intel AX200NGW)
-- RTL8111HSD-CG 1Gbe Ethernet
+- Broadcom 94360CS2 Wireless Card
+- RTL8111HSD-CG Ethernet
 - 65W PSU
-- ALC256 (ALC 3246) audio codec
-- BIOS Version: 2.34.0
+- ALC256 audio codec
+- BIOS 2.34.0
 
 
 
@@ -21,28 +19,26 @@ System specs
 What works
 -
 - Sleep/Shutdown/Restart
-- AirDrop (two-way)
+- Two-way AirDrop
 - Continuity Camera
 - Universal Clipboard
 - Universal Control
 - Watch Unlock/Authentication
 - Wired Sidecar
-- Handoff (e.g. Safari Tabs, Discord)
-- AirPlay Receiver
-- Internal speakers, both audio jacks, HDMI/DP Audio
-- All USB ports
+- Handoff
+- AirPlay
+- Audio (internal, jacks, HDMI/DP)
+- Every USB port
 
 
 Known caveats/issues
 -
-- Nonfunctioning hibernate
-- powernap/tcpkeepalive/networkoversleep cause sleep instability on second sleep
-- Wireless Sidecar doesn't render
-- Slight delay on Watch Unlock upon wake due to AppleHDA audio loading
-- No Phone Mirroring (lack of T2 chip)
-- Find My on sleep (since tcpkeepalive is disabled)
-- Trim is disabled in config.plist (due to slow boot times on the PM991a)
-
+- Hibernate is untested
+- pmset settings cause sleep instability
+- Wireless Sidecar render issues
+- Slow Watch Unlock on wake (caused by AppleALC loading delay on wake)
+- No Phone Mirroring (no T2 chip)
+- No Find My during sleep (no tcpkeepalive)
 
 Kexts
 -
@@ -94,29 +90,28 @@ Software-sided patches
 -
 - OCLP (or OCLP-Mod for Tahoe)
 - Disabling FileVault (for a native lock screen)
-- "_sudo pmset -a standby 0 womp 0 proximitywake 0 powernap 0 networkoversleep 0 disksleep 1 sleep 1 hibernatemode 0 tcpkeepalive 0 acwake 0_" on Terminal
-- sleepwatcher (close and open apps that crash or slow down sleep, such as WhatsApp)
+- "_sudo pmset -a standby 0 womp 0 proximitywake 0 powernap 0 networkoversleep 0 disksleep 0 hibernatemode 0 tcpkeepalive 0_" on Terminal
+- brew sleepwatcher (close and open apps that crash or slow down sleep, such as WhatsApp)
 
 
 Recommended BIOS Modifications
 -
 
-Through the GUI
+GUI settings
 - TPM -> Disabled
-- Secure Boot -> Disabled (unless keys are created for macos efis)
+- Secure Boot -> Disabled
 - SMM Security Mitigation -> Disabled
 - SATA Operation -> AHCI
-- PTT On -> Disabled
 - Intel SGX -> Disabled
 - ASPM -> Off
 
 
-Through ru.efi
-- CFG Lock -> Disable (or enable AppleXcpmCfgLock)
-- DVMT Pre-Allocated -> 64MB (or use framebuffer_stolenmem flag on the GPU)
-- Wake on WLAN and BT Enable -> 1 (especially useful if you want to wake using Bluetooth peripherals)
-- PCI Express Clock Gating -> Disabled (recommended if you are using the BCM94360CS2, since S3 sleep causes network performance degradation on wake)
-(I recommend dumping your BIOS or finding your exact version of your BIOS online and extracting it into text, to analyze and find the exact flag ids and offsets.)
+Hidden settings (through ru.efi or similar)
+- CFG Lock -> Disabled
+- DVMT Pre-Allocated -> 64MB
+- PCI Express Clock Gating -> Disabled (recommended on BCM94360CS2 to prevent network performance degradation on S3->S0)
+
+Note: If you are on a different BIOS version, I recommend dumping/finding your exact BIOS and extracting a readable text file from it.
 
 Exact BIOS Values (2.34.0)
 -
@@ -124,5 +119,7 @@ Exact BIOS Values (2.34.0)
 | ------- | ------------- | ------- | ------- | ------------------|
 | CFG Lock | CpuSetup | 0x3E | 1 | 0 |
 | DVMT Pre-Allocated | SaSetup | 0xF5 | 1 | 2 |
-| Wake on WLAN and BT Enable | PchSetup | 0x0D | 0 | 1 |
 | PCI Express Clock Gating | PchSetup | 0xB2 | 0 | 1 |
+
+This EFI has been made for educational purposes.
+**You must generate your own serial numbers if you decide to clone this EFI**

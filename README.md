@@ -59,14 +59,14 @@ Kexts
 - [RestrictEvents.kext](https://github.com/acidanthera/RestrictEvents/releases)
 
 
-AX200-specific:
+AX200-specific (stock wireless card kexts):
 - [itlwm.kext](https://github.com/openintelwireless/itlwm/releases)
 - [Airportitlwm.kext](https://github.com/openintelwireless/itlwm/releases) (itlwm substitute for partial Continuity features and native Wi-Fi interface, requires patching)
 - [IntelBluetoothFirmware.kext](https://github.com/OpenIntelWireless/IntelBluetoothFirmware/releases)
 - [IntelBTPatcher.kext](https://github.com/OpenIntelWireless/IntelBluetoothFirmware/releases)
 
 
-Broadcom-specific:
+BCM94360CS2-specific:
 - [IOSkywalkFamily.kext](https://github.com/dortania/OpenCore-Legacy-Patcher/tree/main/payloads/Kexts/Wifi)
 - [IO80211FamilyLegacy.kext](https://github.com/dortania/OpenCore-Legacy-Patcher/tree/main/payloads/Kexts/Wifi)
 - [AirPortBrcmNIC.kext (bundled inside IO80211FamilyLegacy.kext)](https://github.com/dortania/OpenCore-Legacy-Patcher/tree/main/payloads/Kexts/Wifi)

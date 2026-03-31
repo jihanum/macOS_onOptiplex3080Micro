@@ -16,7 +16,7 @@ System specs
 
 **Tested on macOS Tahoe 26.4**
 
-What works
+What's supported
 -
 - Sleep/Shutdown/Restart
 - Two-way AirDrop
@@ -28,15 +28,17 @@ What works
 - Handoff
 - AirPlay
 - Audio (internal, jacks, HDMI/DP)
-- Every USB port
+- USB ports (front and back)
+- Multiple monitors
+- Find My iMac
 
 
-Known caveats/issues
+Known issues
 -
-- Hibernate is untested
 - Wireless Sidecar render issues
 - Slow Watch Unlock on wake (caused by AppleALC loading delay on wake)
-- No Phone Mirroring (no T2 chip)
+- Enabling power nap triggers an unrecoverable sleep state
+- (proximitywake remains untested)
 
 Kexts
 -
@@ -88,8 +90,7 @@ Software-sided patches
 -
 - OCLP (or OCLP-Mod for Tahoe)
 - Disabling FileVault (for a native lock screen)
-- "_sudo pmset -a standby 0 womp 1 proximitywake 0 powernap 1 networkoversleep 1 disksleep 0 hibernatemode 0 tcpkeepalive 1_" on Terminal
-- brew sleepwatcher (close and open apps that crash or slow down sleep, such as WhatsApp)
+- "_sudo pmset -a standby 0 womp 1 proximitywake 0 powernap 0 networkoversleep 1 disksleep 0 hibernatemode 0 tcpkeepalive 1_" on Terminal
 
 
 Recommended BIOS Modifications

@@ -34,11 +34,9 @@ What works
 Known caveats/issues
 -
 - Hibernate is untested
-- pmset settings cause sleep instability
 - Wireless Sidecar render issues
 - Slow Watch Unlock on wake (caused by AppleALC loading delay on wake)
 - No Phone Mirroring (no T2 chip)
-- No Find My during sleep (no tcpkeepalive)
 
 Kexts
 -
@@ -90,7 +88,7 @@ Software-sided patches
 -
 - OCLP (or OCLP-Mod for Tahoe)
 - Disabling FileVault (for a native lock screen)
-- "_sudo pmset -a standby 0 womp 0 proximitywake 0 powernap 0 networkoversleep 0 disksleep 0 hibernatemode 0 tcpkeepalive 0_" on Terminal
+- "_sudo pmset -a standby 0 womp 1 proximitywake 0 powernap 1 networkoversleep 1 disksleep 0 hibernatemode 0 tcpkeepalive 1_" on Terminal
 - brew sleepwatcher (close and open apps that crash or slow down sleep, such as WhatsApp)
 
 

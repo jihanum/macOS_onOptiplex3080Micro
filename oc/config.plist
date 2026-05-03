@@ -588,24 +588,6 @@
                 </dict>
                 <dict>
                     <key>Arch</key>
-                    <string>Any</string>
-                    <key>BundlePath</key>
-                    <string>AirportItlwm.kext</string>
-                    <key>Comment</key>
-                    <string>V</string>
-                    <key>Enabled</key>
-                    <false/>
-                    <key>ExecutablePath</key>
-                    <string>Contents/MacOS/AirportItlwm</string>
-                    <key>MaxKernel</key>
-                    <string></string>
-                    <key>MinKernel</key>
-                    <string></string>
-                    <key>PlistPath</key>
-                    <string>Contents/Info.plist</string>
-                </dict>
-                <dict>
-                    <key>Arch</key>
                     <string>x86_64</string>
                     <key>BundlePath</key>
                     <string>IOSkywalkFamily.kext</string>
@@ -651,42 +633,6 @@
                     <true/>
                     <key>ExecutablePath</key>
                     <string>Contents/MacOS/AirPortBrcmNIC</string>
-                    <key>MaxKernel</key>
-                    <string></string>
-                    <key>MinKernel</key>
-                    <string></string>
-                    <key>PlistPath</key>
-                    <string>Contents/Info.plist</string>
-                </dict>
-                <dict>
-                    <key>Arch</key>
-                    <string>Any</string>
-                    <key>BundlePath</key>
-                    <string>IntelBluetoothFirmware.kext</string>
-                    <key>Comment</key>
-                    <string>V</string>
-                    <key>Enabled</key>
-                    <false/>
-                    <key>ExecutablePath</key>
-                    <string>Contents/MacOS/IntelBluetoothFirmware</string>
-                    <key>MaxKernel</key>
-                    <string></string>
-                    <key>MinKernel</key>
-                    <string></string>
-                    <key>PlistPath</key>
-                    <string>Contents/Info.plist</string>
-                </dict>
-                <dict>
-                    <key>Arch</key>
-                    <string>Any</string>
-                    <key>BundlePath</key>
-                    <string>IntelBTPatcher.kext</string>
-                    <key>Comment</key>
-                    <string>V</string>
-                    <key>Enabled</key>
-                    <false/>
-                    <key>ExecutablePath</key>
-                    <string>Contents/MacOS/IntelBTPatcher</string>
                     <key>MaxKernel</key>
                     <string></string>
                     <key>MinKernel</key>
@@ -788,7 +734,7 @@
                 <key>DisableRtcChecksum</key>
                 <true/>
                 <key>ExtendBTFeatureFlags</key>
-                <true/>
+                <false/>
                 <key>ExternalDiskIcons</key>
                 <false/>
                 <key>ForceAquantiaEthernet</key>
@@ -1052,13 +998,13 @@
                 <key>AdviseFeatures</key>
                 <true/>
                 <key>MLB</key>
-                <string></string>
+                <string>C02135501GUPHC1JC</string>
                 <key>MaxBIOSVersion</key>
                 <false/>
                 <key>ProcessorType</key>
                 <integer>0</integer>
                 <key>ROM</key>
-                <data></data>
+                <data>geAx0IqJ</data>
                 <key>SpoofVendor</key>
                 <true/>
                 <key>SystemMemoryStatus</key>
@@ -1066,9 +1012,9 @@
                 <key>SystemProductName</key>
                 <string>iMac20,1</string>
                 <key>SystemSerialNumber</key>
-                <string></string>
+                <string>C02G9HZXPN5T</string>
                 <key>SystemUUID</key>
-                <string></string>
+                <string>D16F7C8F-96E6-49EF-9C56-E9E0730CB08F</string>
             </dict>
             <key>UpdateDataHub</key>
             <true/>
@@ -1134,7 +1080,7 @@
                 <key>AudioDevice</key>
                 <string>PciRoot(0x0)/Pci(0x1f,0x3)</string>
                 <key>AudioOutMask</key>
-                <integer>1</integer>
+                <integer>-1</integer>
                 <key>AudioSupport</key>
                 <true/>
                 <key>DisconnectHda</key>
@@ -1146,7 +1092,7 @@
                 <key>MinimumAudibleGain</key>
                 <integer>-128</integer>
                 <key>PlayChime</key>
-                <string>Enabled</string>
+                <string>Disabled</string>
                 <key>ResetTrafficClass</key>
                 <true/>
                 <key>SetupDelay</key>
